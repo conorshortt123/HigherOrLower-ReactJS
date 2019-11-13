@@ -1,12 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+//import background from './images/background.PNG';
 import './App.css';
+import Background from './components/Background.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="imgbox">
+          {/* <img src={background} className="center-fit" alt="logo" /> */}
+        </div>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -19,8 +22,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <Background />
     </div>
   );
 }
 
 export default App;
+
