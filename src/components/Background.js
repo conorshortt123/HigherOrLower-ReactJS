@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import "../App.css";
 
+let i;
+let pictures = [];
+let increment = 1;
+let margin = 1;
+
 class Background extends Component {
-    
+
     constructor(){
         super();
         this.state = {
@@ -15,10 +20,10 @@ class Background extends Component {
         .then(results => {
             return results.json();
         }).then(data => {
-            let pictures = data.results.map((pic) => {
+            pictures = data.results.map((pic) => {
                 return(
                     <div key={pic.results}>
-                        <img src={pic.picture.medium} alt="pictures"/>
+                        <img src={pic.picture.medium} style={{paddingLeft : {margin} + 'px'}} alt="pictures"/>
                     </div>
                 )
             })
@@ -28,13 +33,15 @@ class Background extends Component {
     }
 
     render(){
-        return(
+        
+        for(i = 0; i < 100; i++){
+            increment += i;
+            return(
             <div className="Center">
-                <div className="Center">
-                    {this.state.pictures}
-                </div>
+                {this.state.pictures[i]}
             </div>
-        )
+            )
+        }    
     }
 }
 

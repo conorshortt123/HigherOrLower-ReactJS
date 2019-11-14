@@ -39,8 +39,25 @@
   /*width:200px; 
   height:200px;*/ 
   position: fixed; 
-  top: 0%; 
-  left: 0%; 
-  margin-top: 0px; 
-  margin-left: 0px; 
-} 
+  top: 0%;
+  left: 0%;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 0%;
+  padding: 1px;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
