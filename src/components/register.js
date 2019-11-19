@@ -79,20 +79,11 @@ class Register extends React.Component {
                         <label>Username:</label>
                         <input
                             style={{ width: '300px' }}
-                            type='text'textarea
+                            type='text' textarea
                             className='form-control'
                             value={this.state.Username}
                             onChange={this.handleUsernameChange}
                         ></input>
-                    </div>
-                    <div className='form-group'>
-                        <label>User Profile Picture URL</label>
-                        <textarea
-                            style={{ width: '300px' }}
-                            className='form-control'
-                            value={this.state.Avatar}
-                            onChange={this.handleUserAvatarChange}
-                        ></textarea>
                     </div>
                     <div className='form-group'>
                         <label>Password:</label>
@@ -102,6 +93,16 @@ class Register extends React.Component {
                             value={this.state.Password}
                             onChange={this.handlePasswordChange}
                         ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label>User Avatar URL:</label>
+                        <textarea
+                            style={{ width: '300px' }}
+                            type='text'
+                            className='form-control'
+                            value={this.state.Avatar}
+                            onChange={this.handleAvatarChange}
+                        ></textarea>
                     </div>
                     <div>
                         <input

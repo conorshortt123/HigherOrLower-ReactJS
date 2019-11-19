@@ -10,6 +10,7 @@ import Edit from './components/edit';
 import Login from './components/login';
 import Register from './components/register';
 import logo from './images/blogo.jpg';
+import Game from './components/game';
 
 class App extends React.Component {
 
@@ -25,7 +26,10 @@ class App extends React.Component {
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/users">Users</Nav.Link>
-              <Nav.Link href="/create">Game</Nav.Link>
+              <Nav.Link href="/game">Game</Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link href="/users">Username: {Login.loggedEmail}</Nav.Link>
             </Nav>
           </Navbar>
           <Switch>
@@ -34,6 +38,7 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/users" component={UserList} />
+            <Route path="/game" component={Game} />
           </Switch>
         </div>
       </BrowserRouter>

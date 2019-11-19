@@ -23,18 +23,20 @@ class UserCard extends React.Component {
         return (
             <div>
                 <Card border="primary" style={{ width: '28rem' }}>
-                    <Card.Header>{this.props.user.email}</Card.Header>
+                    <Card.Header style={{color: "black"}}><b>Email:</b> {this.props.user.email}</Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             <img src={this.props.user.avatar} alt="avatar"></img>
-                            <footer>
-                                {this.props.user.username}
+                            <footer style={{color: "black"}}>
+                                <b>Username:</b> {this.props.user.username}<br/>
+                                <b>Password:</b> {this.props.user.password}
                             </footer>
                         </blockquote>
                     </Card.Body>
-                    <Button variant="danger" onClick={this.DeleteUser}>Delete</Button>
-                    <Link to={"/edit/" + this.props.user._id} className="btn btn-primary">Edit</Link>
+                    <Button variant="danger" onClick={this.DeleteUser}><strong>Delete</strong></Button>
+                    <Link to={"/edit/" + this.props.user._id} className="btn btn-primary"><strong>Edit</strong></Link>
                 </Card>
+                <br/>
             </div>
         )
     }
