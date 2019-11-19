@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css';
 import Background from '../images/background.PNG';
-import Button from 'react-bootstrap/Button';
 
 class Home extends React.Component {
 
@@ -20,7 +19,7 @@ class Home extends React.Component {
                 <div className="App-header">
                     <h1 style={{ color: "red" }}>Welcome To BetUnfair</h1>
                     <h2>{new Date().toLocaleTimeString()}.</h2>
-                    <img src={Background}></img>
+                    <img src={Background} alt="Background"></img>
                     <div>
                         <a href="/login" class="btn btn-danger active" role="button">Login</a>
                         <a href="/register" class="btn btn-info active" role="button">Register</a>

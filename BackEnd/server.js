@@ -26,80 +26,55 @@ app.use(bodyParser.json())
 
 const Schema = mongoose.Schema;
 
-const movieSchema = new Schema({
-    title:String,
-    year:String,
-    poster:String
+const userSchema = new Schema({
+    email:String,
+    username:String,
+    password:String,
+    avatar:String
 })
 
-const MovieModel = mongoose.model('movie', movieSchema);
+const UserModel = mongoose.model('user', userSchema);
 
+app.get('/api/users', (req, res) => {
 
-app.get('/', (req, res) => res.send('Hello World!'))
-
-app.get('/whatever', (req, res) => {
-    res.send('whatever')
-})
-
-app.get('/name', (req, res) => {
-    console.log(req.query.lastname)
-    res.send('Welcome ' + req.query.firstname +
-        ' ' + req.query.lastname);
-})
-
-app.post('/name', (req, res) => {
-    console.log(req.body.lastname);
-    res.send('post recieved from '
-        + req.body.firstname + ' ' +
-        req.body.lastname)
-})
-
-app.get('/test', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
-})
-
-app.get('/api/movies', (req, res) => {
-
-    MovieModel.find((error, data) =>{
-        res.json({movies:data});
+    UserModel.find((error, data) =>{
+        res.json({users:data});
     })
     
 })
 
-app.get('/api/movies/:id', (req, res)=>{
+app.get('/api/users/:id', (req, res)=>{
     console.log(req.params.id);
 
-    MovieModel.findById(req.params.id, (error,data)=>{
+    UserModel.findById(req.params.id, (error,data)=>{
         res.json(data);
     })
 })
 
-app.delete('/api/movies/:id', (req, res)=>{
+app.delete('/api/users/:id', (req, res)=>{
     console.log(req.params.id);
 
-    MovieModel.deleteOne({_id: req.params.id},
+    UserModel.deleteOne({_id: req.params.id},
         (error, data) =>{
             res.json(data);
         })
 })
 
-app.post('/api/movies', (req,res)=>{
+app.post('/api/users', (req,res)=>{
     console.log('Post request Successful');
-    console.log(req.body.title);
-    console.log(req.body.year);
-    console.log(req.body.poster);
+    console.log(req.body.email);
+    console.log(req.body.username);
+    console.log(req.body.password);
+    console.log(req.body.avatar);
 
-    MovieModel.create({
-        title:req.body.title, 
-        year:req.body.year, 
-        poster:req.body.poster
+    UserModel.create({
+        email:req.body.email, 
+        username:req.body.username, 
+        password:req.body.password,
+        avatar:req.body.avatar
     });
 
     res.json('post recieved!');
-})
-app.get('/hello/:name', (req, res) => {
-    console.log(req.params.name);
-    res.send('Hello ' + req.params.name)
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

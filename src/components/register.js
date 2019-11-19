@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../App.css';
 
 class Register extends React.Component {
@@ -9,13 +10,15 @@ class Register extends React.Component {
         this.state = {
             Email: '',
             Username: '',
-            Password: ''
+            Password: '',
+            Avatar: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handleAvatarChange = this.handleAvatarChange.bind(this);
     }
 
     handleEmailChange(e) {
@@ -30,9 +33,31 @@ class Register extends React.Component {
         this.setState({ Password: e.target.value });
     }
 
+    handleAvatarChange(e) {
+        this.setState({ Avatar: e.target.value });
+    }
+
     handleSubmit(e) {
         alert(this.state.Email + "      " + this.state.Username
-            + "       " + this.state.Password);
+            + "       " + this.state.Password + "       " + this.state.Avatar);
+        e.preventDefault();
+
+        const newUser = {
+            email: this.state.Email,
+            username: this.state.Username,
+            password: this.state.Password,
+            avatar: this.state.Avatar
+        };
+        axios.post('http://localhost:4000/api/users', newUser)
+            .then()
+            .catch();
+
+        this.setState({
+            Email: '',
+            Username: '',
+            Password: '',
+            Avatar: ''
+        });
     }
 
     render() {
@@ -54,11 +79,20 @@ class Register extends React.Component {
                         <label>Username:</label>
                         <input
                             style={{ width: '300px' }}
-                            type='text'
+                            type='text'textarea
                             className='form-control'
                             value={this.state.Username}
                             onChange={this.handleUsernameChange}
                         ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label>User Profile Picture URL</label>
+                        <textarea
+                            style={{ width: '300px' }}
+                            className='form-control'
+                            value={this.state.Avatar}
+                            onChange={this.handleUserAvatarChange}
+                        ></textarea>
                     </div>
                     <div className='form-group'>
                         <label>Password:</label>
