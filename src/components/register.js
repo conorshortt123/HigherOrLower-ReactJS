@@ -38,8 +38,7 @@ class Register extends React.Component {
     }
 
     handleSubmit(e) {
-        alert(this.state.Email + "      " + this.state.Username
-            + "       " + this.state.Password + "       " + this.state.Avatar);
+        alert("Registration Succesful, press OK to continue to users page to view account!");
         e.preventDefault();
 
         const newUser = {
@@ -58,6 +57,7 @@ class Register extends React.Component {
             Password: '',
             Avatar: ''
         });
+        this.props.history.push('/users')
     }
 
     render() {

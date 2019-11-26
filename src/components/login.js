@@ -43,6 +43,7 @@ class Login extends React.Component {
                             if (userLogin.password === this.state.users[i].password) {
                                 alert("Login succesful");
                                 loggedIn = true;
+                                this.props.history.push('/game');
                             } else {
                                 alert("Email or Password incorrect, please try again! (check users page for login details)");
                             }
