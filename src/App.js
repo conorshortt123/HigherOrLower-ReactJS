@@ -15,7 +15,7 @@ import Game from './components/game';
 class App extends React.Component {
 
   render() {
-    return (
+    return (  
       <BrowserRouter>
         <div className="App">
           <Navbar bg="primary" variant="dark">
@@ -28,9 +28,6 @@ class App extends React.Component {
               <Nav.Link href="/users">Users</Nav.Link>
               <Nav.Link href="/game">Game</Nav.Link>
             </Nav>
-            <Nav>
-              <Nav.Link href="/users">Username: {Login.loggedEmail}</Nav.Link>
-            </Nav>
           </Navbar>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -40,10 +37,12 @@ class App extends React.Component {
             <Route path="/users" component={UserList} />
             <Route path="/game" component={Game} />
           </Switch>
-        </div>
+        </div>   
       </BrowserRouter>
     );
   }
+
+
 }
 
 export default App;

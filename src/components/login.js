@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-let loggedEmail;
 let loggedIn = false;
 
 class Login extends React.Component {
@@ -11,7 +10,7 @@ class Login extends React.Component {
 
         this.state = {
             Email: '',
-            Password: ''
+            Password: '',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +27,6 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
-        alert(this.state.Email + "       " + this.state.Password);
         e.preventDefault();
 
         const userLogin = {
@@ -36,22 +34,27 @@ class Login extends React.Component {
             password: this.state.Password
         };
 
-        axios.get('http://localhost:4000/api/users')
-            .then((response) => {
-                this.setState({ users: response.data.users })
-                for (var i = 0; i < this.state.users.length; i++) {
-                    if (userLogin.email === this.state.users[i].email) {
-                        if (userLogin.password === this.state.users[i].password) {
-                            alert("Login succesful");
-                            loggedEmail = userLogin.email;
-                            loggedIn = true;
+        if (loggedIn === false) {
+            axios.get('http://localhost:4000/api/users')
+                .then((response) => {
+                    this.setState({ users: response.data.users })
+                    for (var i = 0; i < this.state.users.length; i++) {
+                        if (userLogin.email === this.state.users[i].email) {
+                            if (userLogin.password === this.state.users[i].password) {
+                                alert("Login succesful");
+                                loggedIn = true;
+                            } else {
+                                alert("Email or Password incorrect, please try again! (check users page for login details)");
+                            }
                         }
                     }
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        } else {
+            alert("Already logged in!");
+        }
     }
 
     render() {
