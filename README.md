@@ -1,6 +1,6 @@
 # HigherOrLower - User Guide - Conor Shortt
 
-##INSTRUCTIONS:
+## INSTRUCTIONS:
 
 * Home page contains two buttons:
 	* Register allows you to push a user to the database
@@ -17,6 +17,6 @@
 	* This will draw a new card from the deck and compares it to the previous card.
 	* A correct guess adds your bet amount to your points total, and incorrect guess subtracts.
 	
-###References:
-	* https://deckofcardsapi.com/
-	* https://github.com/MERN-Application
+### References:
+* https://deckofcardsapi.com/
+* https://github.com/MERN-Application
