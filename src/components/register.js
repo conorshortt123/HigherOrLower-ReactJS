@@ -38,7 +38,7 @@ class Register extends React.Component {
     }
 
     handleSubmit(e) {
-        alert("Registration Succesful, press OK to continue to users page to view account!");
+        alert("Registration Succesful!");
         e.preventDefault();
 
         const newUser = {
@@ -57,7 +57,6 @@ class Register extends React.Component {
             Password: '',
             Avatar: ''
         });
-        this.props.history.push('/users')
     }
 
     render() {
@@ -107,7 +106,8 @@ class Register extends React.Component {
                     <div>
                         <input
                             type="submit"
-                            value="Create Account">
+                            value="Create Account"
+                            className="btn btn-primary">
                         </input>
                     </div>
                 </form>

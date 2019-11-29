@@ -4,18 +4,19 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 class UserCard extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.DeleteUser = this.DeleteUser.bind(this);
     }
 
     DeleteUser(e) {
         console.log("Delete Clicked");
         axios.delete("http://localhost:4000/api/users/" + this.props.user._id)
-            .then()
+            .then(respnse => {
+                window.location.reload();
+            })
             .catch();
     }
 
@@ -39,6 +40,7 @@ class UserCard extends React.Component {
                 <br/>
             </div>
         )
+        window.location.reload();
     }
 }
 export default UserCard;

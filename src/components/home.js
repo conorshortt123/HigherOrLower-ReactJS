@@ -21,8 +21,8 @@ class Home extends React.Component {
                     <h2>{new Date().toLocaleTimeString()}.</h2>
                     <img src={Background} alt="Background"></img>
                     <div>
-                        <a href="/login" class="btn btn-danger active" role="button">Login</a>
-                        <a href="/register" class="btn btn-info active" role="button">Register</a>
+                        <a href="/login" className="btn btn-danger active" role="button">Login</a>
+                        <a href="/register" className="btn btn-info active" role="button">Register</a>
                     </div>
                 </div>
             </div>
