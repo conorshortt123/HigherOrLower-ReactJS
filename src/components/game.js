@@ -69,6 +69,7 @@ class Game extends React.Component {
         this.forceUpdate();
         this.state.prevCardVal = this.state.curCardVal;
         this.checkVal();
+        this.state.higherClicked = false;
     }
 
     higherClicked() {
@@ -122,6 +123,7 @@ class Game extends React.Component {
                 points += this.state.x;
                 alert("Correct! Card was higher! " + this.state.x + " points added to your account!");
                 this.state.showCorrect = "block";
+                this.state.showIncorrect = "none";
             } else if (this.state.curCardVal === this.state.prevCardVal) {
                 alert("Cards were equal! No points added or taken from your account!");
             } else {
